@@ -107,5 +107,17 @@
         }
       }
     }
-  }
+  },
+  "cli": {
+    "analytics": "711a8d94-281a-43d4-befc-468c82dc68b6"
+  },
+  "styles": [
+  "src/styles.css",
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+],
+"scripts": [
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+]
+
 }

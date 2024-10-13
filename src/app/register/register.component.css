@@ -1,0 +1,77 @@
+/* พื้นที่หลักของหน้า register */
+.container {
+    background-color: #f0f4ff; /* ใช้สีฟ้าอ่อนเป็นพื้นหลัง */
+  }
+  
+  .register-card {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ไอคอนในฟอร์ม */
+  .form-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #ff4081; /* ใช้สีชมพูสดสำหรับไอคอน */
+  }
+  
+  /* การปรับแต่งฟิลด์ฟอร์ม */
+  .form-control {
+    padding-left: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff; /* เมื่อ focus ฟิลด์ จะเปลี่ยนเป็นสีฟ้าสด */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* ปุ่ม Register */
+  .btn-primary {
+    background-color: #007bff; /* ใช้สีฟ้าสด */
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #17a2b8; /* เมื่อ hover จะเปลี่ยนเป็นสีฟ้าสดใส */
+    border-color: #138496;
+  }
+  
+  .btn-lg {
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+  }
+  
+  /* ข้อความลิงก์และสี */
+  .text-primary {
+    color: #ff4081 !important; /* ลิงก์จะเป็นสีชมพูสด */
+  }
+  
+  .text-muted {
+    color: #6c757d !important;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* ข้อความลิงก์ไม่ขีดเส้นใต้ */
+  .text-decoration-none {
+    text-decoration: none !important;
+  }
+  
+  /* เพิ่มเงาเมื่อ hover ที่การ์ด */
+  .register-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+  

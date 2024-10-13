@@ -1,0 +1,49 @@
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="login-card shadow-lg p-5 rounded">
+      <h2 class="text-center mb-4 text-primary">Welcome Back!</h2>
+      <p class="text-center mb-4 text-muted">Please login to your account</p>
+  
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3 position-relative">
+          <label for="email" class="form-label">
+            <i class="bi bi-envelope-fill form-icon"></i>Email
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group mb-4 position-relative">
+          <label for="password" class="form-label">
+            <i class="bi bi-lock-fill form-icon"></i>Password
+          </label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-lg rounded-pill">Login</button>
+        </div>
+      </form>
+  
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+  
+      <p class="text-center mt-4 text-muted">
+        Don't have an account? <a routerLink="/register" class="text-primary">Register</a>
+      </p>
+    </div>
+  </div>
+  
