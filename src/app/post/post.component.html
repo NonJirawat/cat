@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h3>Create a Post</h3>
+    
+    <!-- แสดงข้อความข้อผิดพลาดถ้ามี -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    
+    <div class="form-group">
+      <textarea [(ngModel)]="content" class="form-control" rows="3" placeholder="What's on your mind?"></textarea>
+    </div>
+    
+    <div class="form-group mt-3">
+      <input type="text" [(ngModel)]="image" class="form-control" placeholder="Image URL (optional)" />
+    </div>
+    
+    <button class="btn btn-primary mt-3" (click)="createPost()">Post</button>
+  </div>
+  

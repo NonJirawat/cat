@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
+import { AuthService } from '../auth.service';  // นำเข้า AuthService
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,29 +8,23 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
   name: string = '';
   email: string = '';
   password: string = '';
-  confirmPassword: string = '';
-  errorMessage: string = '';
+  errorMessage: string = '';  // เก็บข้อความแสดงข้อผิดพลาด
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
-    // ตรวจสอบว่ารหัสผ่านและยืนยันรหัสผ่านตรงกัน
-    if (this.password !== this.confirmPassword) {
-      this.errorMessage = 'Passwords do not match';
-      return;
-    }
-
-    // เรียกใช้ AuthService เพื่อลงทะเบียนผู้ใช้ใหม่
+  // ฟังก์ชัน register เมื่อผู้ใช้กดปุ่มลงทะเบียน
+  onRegister() {
     this.authService.register(this.name, this.email, this.password).subscribe({
       next: (response) => {
-        localStorage.setItem('token', response.token); // เก็บ JWT token
-        this.router.navigate(['/home']); // หลังจากลงทะเบียนสำเร็จ
+        this.authService.setToken(response.token);  // เก็บ token ที่ได้รับใน localStorage
+        this.router.navigate(['/home']);  // หลังจากลงทะเบียนสำเร็จ นำทางไปที่หน้า home
       },
-      error: (err) => {
-        this.errorMessage = 'Registration failed. Please try again.';
+      error: (error) => {
+        this.errorMessage = 'Registration failed';  // แสดงข้อความข้อผิดพลาดหากการลงทะเบียนล้มเหลว
       }
     });
   }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
+import { AuthService } from '../auth.service';  // นำเข้า AuthService
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,20 +8,22 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
   email: string = '';
   password: string = '';
-  errorMessage: string = '';
+  errorMessage: string = '';  // เก็บข้อความแสดงข้อผิดพลาด
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
+  // ฟังก์ชัน login เมื่อผู้ใช้กดปุ่มล็อกอิน
+  onLogin() {
     this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
-        localStorage.setItem('token', response.token); // เก็บ JWT token
-        this.router.navigate(['/home']); // เปลี่ยนหน้าไปที่ home เมื่อ login สำเร็จ
+        this.authService.setToken(response.token);  // เก็บ token ที่ได้รับใน localStorage
+        this.router.navigate(['/home']);  // หลังจากล็อกอินสำเร็จ นำทางไปที่หน้า home
       },
-      error: (err) => {
-        this.errorMessage = 'Login failed. Please check your email and password.';
+      error: (error) => {
+        this.errorMessage = 'Invalid email or password';  // แสดงข้อความข้อผิดพลาดหากล็อกอินไม่สำเร็จ
       }
     });
   }
