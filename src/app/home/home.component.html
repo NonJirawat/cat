@@ -9,12 +9,12 @@
 
         <div class="card-body">
           <p class="card-text text-muted mb-1">อัพเดตโพสต์เมื่อ {{ post.CreatedAt | date:'dd/MM/yyyy' }}</p>
-          <h5 class="card-title text-truncate">{{ post.Content }}</h5>
+          <h5 class="card-title">{{ truncateText(post.Content, 30) }}</h5> <!-- ตัดคำเมื่อเกิน 30 อักษร -->
           <p class="card-text text-muted">
-            <small>สายพันธุ์: {{ post.Breed || 'ไม่ระบุ' }}</small><br>
-            <small>อายุ: {{ post.Age || 'ไม่ระบุ' }}</small><br>
-            <small>เพศ: {{ post.Sex || 'ไม่ระบุ' }}</small><br>
-            <small>สถานที่: {{ post.Location || 'ไม่ระบุ' }}</small>
+            <small>สายพันธุ์: {{ post.Breed }}</small><br>
+            <small>อายุ: {{ post.Age }}</small><br>
+            <small>เพศ: {{ post.Sex }}</small><br>
+            <small>สถานที่: {{ post.Location }}</small>
           </p>
           <p class="card-price text-danger fw-bold">{{ post.Price | currency:'THB':'symbol' }}</p>
         </div>

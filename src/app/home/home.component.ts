@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
       error: (err) => console.error('Error fetching posts with cats:', err)
     });
   }
+  truncateText(text: string, maxLength: number): string {
+    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+}
+
 }
