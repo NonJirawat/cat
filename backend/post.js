@@ -89,6 +89,34 @@ router.get('/post', async (req, res) => {
       res.status(500).json({ message: 'Server error' });
     }
   });
+
+  // สมมุติว่าเรามี API สำหรับดึงข้อมูล posts พร้อมกับข้อมูล cats ที่สัมพันธ์กัน
+router.get('/posts-with-cats', async (req, res) => {
+  try {
+      const pool = await getConnection();
+      const result = await pool.request()
+          .query(`
+              SELECT 
+                  p.PostID,
+                  p.Content,
+                  p.CreatedAt,
+                  p.Image,
+                  c.Breed,
+                  c.Age,
+                  c.Sex,
+                  c.Location
+              FROM Posts p
+              LEFT JOIN Cats c ON p.UserID = c.UsersID
+              ORDER BY p.CreatedAt DESC
+          `);
+
+      res.json(result.recordset);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Server error' });
+  }
+});
+
   
   
 module.exports = router;

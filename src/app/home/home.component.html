@@ -1,17 +1,19 @@
+<app-navbar></app-navbar>
 <div class="container mt-4">
   <h2 class="text-center mb-4">สัตว์เลี้ยงแนะนำ</h2>
-  
+
   <div class="row">
-    <div *ngFor="let post of posts" class="col-md-4 col-lg-3 mb-4">
+    <div *ngFor="let post of combinedPosts" class="col-md-4 col-lg-3 mb-4">
       <div class="card post-card h-100">
         <img [src]="post.Image || 'https://via.placeholder.com/300'" class="card-img-top img-fluid" alt="Post Image">
-        
+
         <div class="card-body">
           <p class="card-text text-muted mb-1">อัพเดตโพสต์เมื่อ {{ post.CreatedAt | date:'dd/MM/yyyy' }}</p>
           <h5 class="card-title text-truncate">{{ post.Content }}</h5>
           <p class="card-text text-muted">
             <small>สายพันธุ์: {{ post.Breed || 'ไม่ระบุ' }}</small><br>
             <small>อายุ: {{ post.Age || 'ไม่ระบุ' }}</small><br>
+            <small>เพศ: {{ post.Sex || 'ไม่ระบุ' }}</small><br>
             <small>สถานที่: {{ post.Location || 'ไม่ระบุ' }}</small>
           </p>
           <p class="card-price text-danger fw-bold">{{ post.Price | currency:'THB':'symbol' }}</p>

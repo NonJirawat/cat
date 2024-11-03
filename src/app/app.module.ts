@@ -11,6 +11,9 @@ import { RegisterComponent } from './register/register.component';
 import { PostComponent } from './post/post.component';
 import { PostUserComponent } from './post-user/post-user.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { FriendMatchingComponent } from './friend-matching/friend-matching.component';
+import { RequestFriendComponent } from './request-friend/request-friend.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     RegisterComponent,
     PostComponent,
     PostUserComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    FriendMatchingComponent,
+    RequestFriendComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

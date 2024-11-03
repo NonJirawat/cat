@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PostService {
+  getPosts() {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'http://localhost:3000/api';  // URL ของ API backend
 
   constructor(private http: HttpClient) {}
@@ -49,5 +52,7 @@ export class PostService {
   const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
   return this.http.get(`${this.apiUrl}/posts/${postId}`, { headers });
 }
-
+getPostsWithCats(): Observable<any> {
+  return this.http.get(`${this.apiUrl}/posts-with-cats`);
+}
 }

@@ -1,0 +1,11 @@
+<div>
+    <button (click)="sendFriendRequest(2)">Send Friend Request </button>
+    <ul>
+      <li *ngFor="let request of friendRequests">
+        {{ request.requesterUserId }} requested to be friends
+        <button (click)="acceptFriendRequest(request.id)">Accept</button>
+        <button (click)="declineFriendRequest(request.id)">Decline</button>
+      </li>
+    </ul>
+  </div>
+  
