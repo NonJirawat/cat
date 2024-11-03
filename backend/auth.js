@@ -29,7 +29,6 @@ router.post('/login', async (req, res) => {
 
     // สร้าง JWT token ถ้ารหัสผ่านถูกต้อง
     const token = jwt.sign({ userId: user.IDUser, email: user.Email }, JWT_SECRET, { expiresIn: '1h' });
-    
     // ส่ง token และข้อมูลผู้ใช้กลับไปยัง frontend
     res.json({ token, user: { id: user.IDUser, name: user.NameUser, email: user.Email } });
   } catch (error) {

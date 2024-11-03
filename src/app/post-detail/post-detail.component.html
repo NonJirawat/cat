@@ -1,0 +1,14 @@
+<div *ngIf="post" class="post-detail">
+  <h2>Post Details</h2>
+  <h3>{{ post.Content }}</h3>
+  <div *ngIf="post.Image">
+    <img [src]="post.Image" alt="Post Image" class="post-image">
+  </div>
+  <p><strong>Posted on:</strong> {{ post.CreatedAt | date:'medium' }}</p>
+  <p *ngIf="post.UpdatedAt && post.UpdatedAt !== post.CreatedAt">
+    <strong>Last updated on:</strong> {{ post.UpdatedAt | date:'medium' }}
+  </p>
+</div>
+<div *ngIf="!post" class="loading">
+  Loading post details...
+</div>

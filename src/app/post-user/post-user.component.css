@@ -1,0 +1,30 @@
+.post-user {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .post-user h3 {
+    font-size: 1.5rem;
+    color: #495057;
+  }
+  
+  .post-user img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .post-user p {
+    color: #6c757d;
+  }
+  
+  .post-user .post-date {
+    font-size: 0.9rem;
+    color: #adb5bd;
+    margin-top: 10px;
+  }
+  

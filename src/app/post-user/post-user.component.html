@@ -1,0 +1,6 @@
+<div *ngFor="let post of userPosts" class="post-user">
+    <h3>{{ post.Content }}</h3>
+    <p><img *ngIf="post.Image" [src]="post.Image" alt="Post Image"></p>
+    <p class="post-date">Posted on: {{ post.CreatedAt | date:'medium' }}</p>
+  </div>
+  

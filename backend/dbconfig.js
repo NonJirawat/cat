@@ -1,6 +1,8 @@
 const sql = require('mssql');
 
 
+
+
 const config = {
     user: 'sa',  // ใส่ชื่อผู้ใช้ SQL Server
     password: '#Nnonwow12',  // ใส่รหัสผ่าน SQL Server

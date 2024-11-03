@@ -1,5 +1,22 @@
-<div class="home-container">
-    <h1>Welcome to the Home Page</h1>
-    <p>You are logged in!</p>
+<div class="container mt-4">
+  <h1 class="text-center mb-4 text-primary">All Posts</h1>
+
+  <div *ngIf="posts.length === 0" class="text-center text-muted">
+    <p>No posts available</p>
   </div>
-  
+
+  <div *ngFor="let post of posts" class="post-card card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">{{ post.Content }}</h3>
+      <div *ngIf="post.Image" class="text-center my-3">
+        <img [src]="post.Image" alt="Post Image" class="post-image img-fluid rounded">
+      </div>
+      <p class="card-text">
+        <strong>Posted by:</strong> {{ post.NameUser }}
+      </p>
+      <p class="card-text">
+        <small class="text-muted">{{ post.CreatedAt | date:'medium' }}</small>
+      </p>
+    </div>
+  </div>
+</div>

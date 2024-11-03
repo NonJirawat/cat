@@ -1,37 +1,53 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private apiUrl = 'http://localhost:3000/api/posts';  // URL ของ API backend
+  private apiUrl = 'http://localhost:3000/api';  // URL ของ API backend
 
   constructor(private http: HttpClient) {}
 
-  // ฟังก์ชันสำหรับดึง userId จาก token
-  getUserIdFromToken(): number | null {
-    const token = localStorage.getItem('token');  // ดึง token จาก localStorage
+  // ดึงโพสต์ทั้งหมด
+  getAllPosts(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/post`);
+  }
+
+  // ดึงโพสต์ของผู้ใช้ที่ล็อกอิน
+  getUserPosts(): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+    return this.http.get(`${this.apiUrl}/user/posts`, { headers });
+  }
+
+  // ดึงรายละเอียดโพสต์ตาม ID
+  getPostById(postId: number): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+    return this.http.get(`${this.apiUrl}/posts/${postId}`, { headers });
+  }
+
+  // สร้างโพสต์ใหม่
+  createPost(content: string, image: string | null): Observable<any> {
+    const userId = this.getUserIdFromToken();
+    if (!userId) throw new Error('User is not logged in');
+
+    return this.http.post(`${this.apiUrl}/post`, { userId, content, image });
+  }
+
+  // ดึง userId จาก token
+  private getUserIdFromToken(): number | null {
+    const token = localStorage.getItem('token');
     if (token) {
-      const decodedToken: any = jwtDecode(token);  // ถอดรหัส token เพื่อดึงข้อมูล
-      return decodedToken.userId;  // คืนค่า userId จาก payload ของ token
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.userId;
     }
     return null;
   }
+  
+  getPostUser(postId: number): Observable<any> {
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+  return this.http.get(`${this.apiUrl}/posts/${postId}`, { headers });
+}
 
-  // ฟังก์ชันสำหรับสร้างโพสต์ใหม่
-  createPost(content: string, image: string): Observable<any> {
-    const userId = this.getUserIdFromToken();  // ดึง userId จาก token
-    if (!userId) {
-      throw new Error('User is not logged in');
-    }
-
-    return this.http.post(this.apiUrl, {
-      userId: userId,
-      content: content,
-      image: image || null  // ถ้า image เป็นค่าว่าง ให้ส่ง null
-    });
-  }
 }
