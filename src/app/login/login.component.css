@@ -1,76 +1,69 @@
-/* พื้นที่หลักของหน้า login */
-.container {
-  background-color: #f7f8fc; /* สีพื้นหลังหลัก */
+/* พื้นหลังแบบ gradient */
+body {
+  background: linear-gradient(135deg, #e2eafc, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* จัดตำแหน่งกล่อง login ให้เป็น card */
+.login-container {
+  width: 100%;
+  max-width: 380px;
+  padding: 20px;
+}
+
+/* กรอบการ์ด login */
 .login-card {
-  max-width: 400px;
-  margin: 100px auto;
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
 }
 
-/* ไอคอนในฟอร์ม */
-.form-icon {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  font-size: 1.5rem;
-  color: #6c757d;
+/* สไตล์หัวเรื่อง */
+.login-card h2 {
+  color: #495057;
+  font-weight: 600;
 }
 
-/* การปรับแต่งฟิลด์ฟอร์ม */
+/* ปรับสไตล์ input */
 .form-control {
-  padding-left: 2.5rem;
-  border-radius: 10px;
+  border-radius: 8px;
+  padding: 0.8rem;
   border: 1px solid #ced4da;
-  transition: border-color 0.3s;
+  background-color: #f8f9fa;
 }
 
-.form-control:focus {
-  border-color: #6f42c1; /* เมื่อ focus ฟิลด์ จะเปลี่ยนสีเป็นม่วง */
-  box-shadow: 0 0 5px rgba(111, 66, 193, 0.3);
+/* ปุ่มเข้าสู่ระบบ */
+button.btn-primary {
+  padding: 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #007bff;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
-/* ปุ่ม Login */
-.btn-primary {
-  background-color: #6f42c1; /* สีม่วง */
-  border-color: #6f42c1;
+button.btn-primary:hover {
+  background-color: #0056b3;
 }
 
-.btn-primary:hover {
-  background-color: #c930f2; /* สีชมพูเมื่อ hover */
-  border-color: #b728d1;
+/* ลิงค์สมัครสมาชิก */
+.btn-link {
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: underline;
 }
 
-.btn-lg {
-  padding: 10px;
-  border-radius: 30px;
-  font-weight: bold;
+.btn-link:hover {
+  text-decoration: none;
+  color: #0056b3;
 }
 
-/* ข้อความและลิงก์ */
-.text-primary {
-  color: #17a2b8 !important; /* ใช้สีฟ้าสดสำหรับข้อความ */
-}
-
-.text-muted {
-  color: #6c757d !important;
-}
-
-.text-center {
-  text-align: center;
-}
-
-/* ข้อความลิงก์ไม่ขีดเส้นใต้ */
-.text-decoration-none {
-  text-decoration: none !important;
-}
-
-/* เพิ่มเงาเมื่อ hover ที่การ์ด */
-.login-card:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+/* ข้อความเพิ่มเติม */
+.small-text {
+  font-size: 0.9rem;
+  color: #6c757d;
 }

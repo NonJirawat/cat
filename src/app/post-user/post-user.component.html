@@ -1,6 +1,14 @@
-<div *ngFor="let post of userPosts" class="post-user">
-    <h3>{{ post.Content }}</h3>
-    <p><img *ngIf="post.Image" [src]="post.Image" alt="Post Image"></p>
-    <p class="post-date">Posted on: {{ post.CreatedAt | date:'medium' }}</p>
+<app-navbar></app-navbar>
+<div class="container my-4">
+  <div class="row">
+    <div *ngFor="let post of userPosts" class="col-md-6 col-lg-4 mb-4">
+      <div class="card shadow-sm post-card h-100">
+        <img *ngIf="post.Image" [src]="post.Image" alt="Post Image" class="card-img-top post-image">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.Content }}</h5>
+          <p class="card-text post-date">โพสต์เมื่อ: {{ post.CreatedAt | date:'medium' }}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  
+</div>
