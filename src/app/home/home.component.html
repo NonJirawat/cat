@@ -1,15 +1,13 @@
 <app-navbar></app-navbar>
 <div class="container mt-4">
   <h2 class="text-center mb-4">สัตว์เลี้ยงแนะนำ</h2>
-
   <div class="row">
     <div *ngFor="let post of combinedPosts" class="col-md-4 col-lg-3 mb-4">
-      <div class="card post-card h-100">
+      <div class="card post-card h-100" (click)="goToPostDetail(post.PostID)">
         <img [src]="post.Image || 'https://via.placeholder.com/300'" class="card-img-top img-fluid" alt="Post Image">
-
         <div class="card-body">
           <p class="card-text text-muted mb-1">อัพเดตโพสต์เมื่อ {{ post.CreatedAt | date:'dd/MM/yyyy' }}</p>
-          <h5 class="card-title">{{ truncateText(post.Content, 30) }}</h5> <!-- ตัดคำเมื่อเกิน 30 อักษร -->
+          <h5 class="card-title">{{ truncateText(post.Content, 30) }}</h5>
           <p class="card-text text-muted">
             <small>สายพันธุ์: {{ post.Breed }}</small><br>
             <small>อายุ: {{ post.Age }}</small><br>

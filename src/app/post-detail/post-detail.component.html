@@ -1,14 +1,21 @@
-<div *ngIf="post" class="post-detail">
-  <h2>Post Details</h2>
-  <h3>{{ post.Content }}</h3>
-  <div *ngIf="post.Image">
-    <img [src]="post.Image" alt="Post Image" class="post-image">
+<div class="container">
+  <h2 class="text-highlight">{{ combinedData.Content }}</h2>
+  <p class="post-more-info"><strong>รายละเอียดเพิ่มเติม:</strong> {{ combinedData.contentmore }}</p>
+  <img *ngIf="combinedData.PostImage" [src]="combinedData.PostImage" alt="Post Image" class="img-fluid card-shadow">
+
+  <div class="user-info card-shadow p-3 mt-4">
+    <h4>ข้อมูลผู้ใช้</h4>
+    <p><strong>ชื่อ:</strong> {{ combinedData.NameUser }}</p>
   </div>
-  <p><strong>Posted on:</strong> {{ post.CreatedAt | date:'medium' }}</p>
-  <p *ngIf="post.UpdatedAt && post.UpdatedAt !== post.CreatedAt">
-    <strong>Last updated on:</strong> {{ post.UpdatedAt | date:'medium' }}
-  </p>
-</div>
-<div *ngIf="!post" class="loading">
-  Loading post details...
+
+  <div class="cat-info card-shadow p-3 mt-4">
+    <h4>ข้อมูลสัตว์เลี้ยง</h4>
+    <p><strong>ชื่อ:</strong> {{ combinedData.Name }}</p>
+    <p><strong>สายพันธุ์:</strong> {{ combinedData.Breed }}</p>
+    <p><strong>เพศ:</strong> {{ combinedData.sex }}</p>
+    <p><strong>อายุ:</strong> {{ combinedData.Age }}</p>
+    <p><strong>สถานที่:</strong> {{ combinedData.Location }}</p>
+  </div>
+
+  <button class="btn btn-primary">เพิ่มในรายการโปรด</button>
 </div>

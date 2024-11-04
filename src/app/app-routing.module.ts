@@ -15,11 +15,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },  // หน้า login ไม่ต้องใช้ Guard
   { path: 'register', component: RegisterComponent },  // หน้า register ไม่ต้องใช้ Guard
   { path: 'post', component: PostComponent, canActivate: [authGuard] },  // หน้าโพสต์ ต้องล็อกอินก่อน
+   { path: 'post-detail/:id', component: PostDetailComponent },  // เพิ่ม Guard สำหรับ post-detail
+  { path: 'request-friend', component: RequestFriendComponent, canActivate: [authGuard] },  // ใช้ Guard สำหรับ request friend{ path: 'post-user', component: PostUserComponent, canActivate: [authGuard] },  // หน้าโพสต์ของผู้ใช้
   { path: 'post-user', component: PostUserComponent, canActivate: [authGuard] },  // หน้าโพสต์ของผู้ใช้
   { path: '', redirectTo: '/home', pathMatch: 'full' },  // กำหนดให้เส้นทางหลักเป็นหน้าโฮม
   { path: '**', redirectTo: '/home' },  // กำหนดเส้นทางผิดพลาดให้ไปหน้าโฮม
-  { path: 'post-detail/:id', component: PostDetailComponent, canActivate: [authGuard] },  // เพิ่ม Guard สำหรับ post-detail
-  { path: 'request-friend', component: RequestFriendComponent, canActivate: [authGuard] },  // ใช้ Guard สำหรับ request friend
+ 
 ];
 
 @NgModule({
