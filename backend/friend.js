@@ -92,4 +92,42 @@ router.get('/friends/:userId', async (req, res) => {
   }
 });
 
+// ดึงคำขอที่สถานะเป็น 'pending'
+// ดึงคำขอที่สถานะเป็น 'pending' และผู้ใช้เป็นผู้รับคำขอ
+router.get('/requests/pending', authMiddleware, async (req, res) => {
+  const userId = req.user.userId;
+
+  try {
+    const pool = await getConnection();
+    const result = await pool.request()
+      .input('ReceiverUserID', userId)
+      .query(`
+        SELECT 
+          FriendRequests.RequestID, 
+          FriendRequests.RequesterUserID, 
+          FriendRequests.ReceiverUserID, 
+          FriendRequests.Status,
+          Users.NameUser AS RequesterName
+        FROM 
+          FriendRequests
+        JOIN 
+          Users ON FriendRequests.RequesterUserID = Users.IDUser
+        WHERE 
+          FriendRequests.ReceiverUserID = @ReceiverUserID 
+          AND FriendRequests.Status = 'pending'
+      `);
+    
+    res.json(result.recordset);
+  } catch (err) {
+    console.error('Error retrieving pending requests:', err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+
+
+module.exports = router;
+
+
 module.exports = router;

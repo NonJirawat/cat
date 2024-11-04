@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FriendService {
-  private apiUrl = 'http://localhost:3000/api/friend';
+  private apiUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
@@ -34,9 +34,9 @@ export class FriendService {
     return this.http.put(`${this.apiUrl}/decline`, { requestId }, { headers });
   }
 
-  // ฟังก์ชันสำหรับดึงรายชื่อเพื่อนของผู้ใช้
-  getFriends(userId: number): Observable<any> {
+  // เพิ่มฟังก์ชันสำหรับดึงคำขอเป็นเพื่อนที่รอการตอบรับ
+  getPendingRequests(): Observable<any> {
     const headers = this.getAuthHeaders();
-    return this.http.get(`${this.apiUrl}/friends/${userId}`, { headers });
+    return this.http.get(`${this.apiUrl}/requests/pending`, { headers });
   }
 }

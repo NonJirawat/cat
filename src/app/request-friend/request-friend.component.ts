@@ -3,39 +3,36 @@ import { FriendService } from '../friend.service';
 
 @Component({
   selector: 'app-request-friend',
-  templateUrl: './request-friend.component.html'
+  templateUrl: './request-friend.component.html',
+  styleUrls: ['./request-friend.component.css']
 })
 export class RequestFriendComponent implements OnInit {
-  friendRequests: any[] = [];
+  pendingRequests: any[] = [];
 
   constructor(private friendService: FriendService) {}
 
   ngOnInit(): void {
-    this.loadFriendRequests();
+    this.loadPendingRequests();
   }
 
-  loadFriendRequests(): void {
-    // เรียก API เพื่อดึงข้อมูลคำขอเป็นเพื่อนที่รอการตอบกลับ
-  }
-
-  sendFriendRequest(receiverUserId: number): void {
-    this.friendService.sendFriendRequest(1, receiverUserId).subscribe({
-      next: () => alert('Friend request sent'),
-      error: (err) => console.error('Error sending friend request', err)
+  loadPendingRequests(): void {
+    this.friendService.getPendingRequests().subscribe({
+      next: (data: any) => this.pendingRequests = data,
+      error: (err: any) => console.error('Error loading pending requests:', err)
     });
   }
 
-  acceptFriendRequest(requestId: number): void {
+  acceptRequest(requestId: number): void {
     this.friendService.acceptFriendRequest(requestId).subscribe({
-      next: () => alert('Friend request accepted'),
-      error: (err) => console.error('Error accepting friend request', err)
+      next: () => this.loadPendingRequests(),
+      error: (err: any) => console.error('Error accepting request:', err)
     });
   }
 
-  declineFriendRequest(requestId: number): void {
+  declineRequest(requestId: number): void {
     this.friendService.declineFriendRequest(requestId).subscribe({
-      next: () => alert('Friend request declined'),
-      error: (err) => console.error('Error declining friend request', err)
+      next: () => this.loadPendingRequests(),
+      error: (err: any) => console.error('Error declining request:', err)
     });
   }
 }

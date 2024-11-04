@@ -1,11 +1,10 @@
-<div>
-    <button (click)="sendFriendRequest(2)">Send Friend Request </button>
-    <ul>
-      <li *ngFor="let request of friendRequests">
-        {{ request.requesterUserId }} requested to be friends
-        <button (click)="acceptFriendRequest(request.id)">Accept</button>
-        <button (click)="declineFriendRequest(request.id)">Decline</button>
-      </li>
-    </ul>
-  </div>
-  
+<div class="container">
+  <h2>คำขอเป็นเพื่อน</h2>
+  <ul>
+    <li *ngFor="let request of pendingRequests">
+      {{ request.NameUser }}
+      <button (click)="acceptRequest(request.RequestID)" class="btn btn-success">ยอมรับ</button>
+      <button (click)="declineRequest(request.RequestID)" class="btn btn-danger">ปฏิเสธ</button>
+    </li>
+  </ul>
+</div>

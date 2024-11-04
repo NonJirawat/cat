@@ -8,6 +8,7 @@ const friendRoutes = require('./friend');
 const matchingRoutes = require('./matching');
 const combinedDataRouter = require('./combinedData');
 
+
 // Middleware
 app.use(cors());  // ใช้ CORS middleware สำหรับทุก request
 app.use(bodyParser.json());  // แปลง request body ให้เป็น JSON
@@ -18,6 +19,7 @@ app.use('/api', postRoutes);
 app.use('/api', friendRoutes);
 app.use('/api/matching', matchingRoutes);
 app.use('/api', combinedDataRouter);
+
 
 
 

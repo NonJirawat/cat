@@ -16,6 +16,8 @@ import { RequestFriendComponent } from './request-friend/request-friend.componen
 import { NavbarComponent } from './navbar/navbar.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     PostDetailComponent,
     FriendMatchingComponent,
     RequestFriendComponent,
-    NavbarComponent
+    NavbarComponent,
+
   ],
   imports: [
     BrowserModule,
