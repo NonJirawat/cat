@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <h2>คำขอเป็นเพื่อน</h2>
+  <h2>คำขอจับคู่</h2>
   <div *ngIf="pendingRequests.length > 0; else noRequests">
     <div *ngFor="let request of pendingRequests" class="request-item">
       <p>ชื่อผู้ขอ: {{ request.RequesterName }}</p>

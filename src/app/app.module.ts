@@ -14,6 +14,8 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { FriendMatchingComponent } from './friend-matching/friend-matching.component';
 import { RequestFriendComponent } from './request-friend/request-friend.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ResultComponent } from './result/result.component';
+import { MatchingComponent } from './matching/matching.component';
 
 
 
@@ -30,6 +32,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     FriendMatchingComponent,
     RequestFriendComponent,
     NavbarComponent,
+    ResultComponent,
+    MatchingComponent,
+    
 
   ],
   imports: [

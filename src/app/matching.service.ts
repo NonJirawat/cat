@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MatchingService {
   private apiUrl = 'http://localhost:3000/api/matching';
+  
 
   constructor(private http: HttpClient) {}
 
@@ -57,5 +58,9 @@ export class MatchingService {
     if (catA.Location === catB.Location) score += 7;
     return score;
   }
-  
-}
+  getMatches(): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+    return this.http.get(`${this.apiUrl}/match`, { headers });
+  }
+  }
+
