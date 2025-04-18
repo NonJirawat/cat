@@ -1,0 +1,20 @@
+<div class="container">
+  <h2 class="text-highlight">{{ combinedData.Content }}</h2>
+  <p class="post-more-info"><strong>รายละเอียดเพิ่มเติม:</strong> {{ combinedData.contentmore }}</p>
+  <img *ngIf="combinedData.PostImage" [src]="combinedData.PostImage" alt="Post Image" class="img-fluid card-shadow">
+
+  <div class="user-info card-shadow p-3 mt-4">
+    <h4>ข้อมูลผู้ใช้</h4>
+    <p><strong>ชื่อ:</strong> {{ combinedData.NameUser }}</p>
+  </div>
+
+  <div class="cat-info card-shadow p-3 mt-4">
+    <h4>ข้อมูลสัตว์เลี้ยง</h4>
+    <p><strong>ชื่อ:</strong> {{ combinedData.Name }}</p>
+    <p><strong>สายพันธุ์:</strong> {{ combinedData.Breed }}</p>
+    <p><strong>เพศ:</strong> {{ combinedData.sex }}</p>
+    <p><strong>อายุ:</strong> {{ combinedData.Age }}</p>
+    <p><strong>สถานที่:</strong> {{ combinedData.Location }}</p>
+  </div>
+  <button class="btn btn-primary mt-2" (click)="addFriend()">Add Friend</button>
+</div>

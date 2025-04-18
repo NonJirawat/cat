@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>  
+<br>
+<div class="container">
+  <h2>ผลการจับคู่ของคุณ</h2>
+  <br>
+  <div *ngIf="matchedCats.length > 0; else noMatches">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let cat of matchedCats">
+        <div class="card mb-4 shadow-sm">
+          <img [src]="cat.image" alt="Cat Image" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title">{{ cat.catName }}</h5>
+            <p class="card-text">
+              <strong>พันธุ์:</strong> {{ cat.breed }}<br />
+              <strong>เพศ:</strong> {{ cat.gender }}<br />
+              <strong>อายุ:</strong> {{ cat.age }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noMatches>
+    <p>ไม่มีการจับคู่ที่ตรงกับเงื่อนไขของคุณในขณะนี้</p>
+  </ng-template>
+</div>

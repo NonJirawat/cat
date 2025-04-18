@@ -1,0 +1,49 @@
+/* Styles for the request friend page */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #f8f9fa; /* Light background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #495057;
+    margin-bottom: 20px;
+  }
+  
+  .request-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+  
+  .request-item p {
+    margin: 0;
+    font-weight: 500;
+    color: #212529;
+  }
+  
+  .request-item button {
+    margin-left: 10px;
+  }
+  
+  .btn-success, .btn-danger {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+  }
+  
+  .ng-template {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    margin-top: 15px;
+  }
+  

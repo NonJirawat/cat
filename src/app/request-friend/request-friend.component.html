@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h2>คำขอจับคู่</h2>
+  <div *ngIf="pendingRequests.length > 0; else noRequests">
+    <div *ngFor="let request of pendingRequests" class="request-item">
+      <p>ชื่อผู้ขอ: {{ request.RequesterName }}</p>
+      <button (click)="acceptRequest(request.RequestID)" class="btn btn-success">ยอมรับ</button>
+      <button (click)="declineRequest(request.RequestID)" class="btn btn-danger">ปฏิเสธ</button>
+    </div>
+  </div>
+  <ng-template #noRequests>
+    <p>ไม่มีคำขอเป็นเพื่อนในขณะนี้</p>
+  </ng-template>
+</div>

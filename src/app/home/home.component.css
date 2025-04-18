@@ -1,14 +1,15 @@
-.home-container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    color: #333;
-  }
-  
-  p {
-    font-size: 1.2rem;
-  }
-  
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.post-card:hover {
+  transform: scale(1.05);
+}
+
+.card-price {
+  font-size: 1.2rem;
+  color: #ff5733;
+}

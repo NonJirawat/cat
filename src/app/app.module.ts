@@ -9,6 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { PostComponent } from './post/post.component';
+import { PostUserComponent } from './post-user/post-user.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { FriendMatchingComponent } from './friend-matching/friend-matching.component';
+import { RequestFriendComponent } from './request-friend/request-friend.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ResultComponent } from './result/result.component';
+import { MatchingComponent } from './matching/matching.component';
+
+
 
 
 @NgModule({
@@ -17,7 +26,16 @@ import { PostComponent } from './post/post.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    PostComponent
+    PostComponent,
+    PostUserComponent,
+    PostDetailComponent,
+    FriendMatchingComponent,
+    RequestFriendComponent,
+    NavbarComponent,
+    ResultComponent,
+    MatchingComponent,
+    
+
   ],
   imports: [
     BrowserModule,
