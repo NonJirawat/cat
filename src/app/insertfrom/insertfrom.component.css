@@ -1,0 +1,60 @@
+/* พื้นหลังแบบ gradient */
+body {
+    background: linear-gradient(135deg, #e2eafc, #ffffff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px; /* เพิ่ม padding รอบ body เพื่อป้องกันการติดขอบ */
+  }
+  
+  /* จัดตำแหน่งกล่องข้อมูลแมวให้เป็น card และอยู่ตรงกลาง */
+  .cat-info-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    text-align: center;
+    margin: 0 auto; /* เพิ่ม margin auto เพื่อให้อยู่ตรงกลาง */
+  }
+  
+  /* สไตล์หัวเรื่อง */
+  .cat-info-container h2 {
+    color: #495057;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* ปรับสไตล์ input */
+  .form-control {
+    border-radius: 8px;
+    padding: 0.8rem;
+    border: 1px solid #ced4da;
+    background-color: #f8f9fa;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left; /* จัดให้ข้อความใน input เริ่มต้นด้านซ้าย */
+  }
+  
+  /* ปุ่มบันทึกข้อมูลแมว */
+  button.btn-primary {
+    padding: 0.8rem;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: #007bff;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
