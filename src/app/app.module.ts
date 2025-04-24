@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './postcom/post.component';
 import { PostUserComponent } from './post-user/post-user.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { FriendMatchingComponent } from './friend-matching/friend-matching.component';
@@ -16,6 +16,7 @@ import { RequestFriendComponent } from './request-friend/request-friend.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResultComponent } from './result/result.component';
 import { MatchingComponent } from './matching/matching.component';
+import { InsertfromComponent } from './insertfrom/insertfrom.component';
 
 
 
@@ -34,6 +35,7 @@ import { MatchingComponent } from './matching/matching.component';
     NavbarComponent,
     ResultComponent,
     MatchingComponent,
+    InsertfromComponent,
     
 
   ],

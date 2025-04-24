@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './postcom/post.component';
 import { authGuard } from './auth.guard';  // แก้ไขเป็น AuthGuard
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostUserComponent } from './post-user/post-user.component';
 import { RequestFriendComponent } from './request-friend/request-friend.component';
 import { ResultComponent } from './result/result.component';
 import { MatchingComponent } from './matching/matching.component';
+import { InsertfromComponent } from './insertfrom/insertfrom.component';
+
 
 
 const routes: Routes = [
@@ -23,6 +25,7 @@ const routes: Routes = [
   { path: 'post-user', component: PostUserComponent, canActivate: [authGuard] },  // หน้าโพสต์ของผู้ใช้
   { path: 'result', component: ResultComponent, canActivate: [authGuard] },  // หน้าผลลัพธ์
   { path: 'matching', component: MatchingComponent, canActivate: [authGuard] },  // หน้า matching
+  { path: 'insert', component: InsertfromComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },  // กำหนดให้เส้นทางหลักเป็นหน้าโฮม
   { path: '**', redirectTo: '/home' },  // กำหนดเส้นทางผิดพลาดให้ไปหน้าโฮม
  
